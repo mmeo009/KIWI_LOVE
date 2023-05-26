@@ -217,7 +217,7 @@ GameObject:
   m_Component:
   - component: {fileID: 696958089}
   - component: {fileID: 696958088}
-  - component: {fileID: 696958087}
+  - component: {fileID: 696958090}
   m_Layer: 0
   m_Name: Triangle
   m_TagString: Untagged
@@ -225,25 +225,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &696958087
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 696958086}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2efc6e17723f1d2459659c472c67a98c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  kiwiStats:
-    hp: 0
-    sta: 0
-    clean: 0
-    mental: 0
-    generation: 0
-    recentKiwi: []
 --- !u!212 &696958088
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -311,3 +292,23 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &696958090
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 696958086}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b6b85fd85b124a4facb04b2b10c82ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  kiwiStats:
+    hp: 0
+    health: 0
+    clean: 0
+    mental: 0
+    generation: 0
+    coin: 0
+    recentKiwi: 
