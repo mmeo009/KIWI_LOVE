@@ -30,4 +30,19 @@ public class KiwiStats : ScriptableObject
     public int LastKiwi { get { return generation; } }
     //키위의 전 세대의 스텟을 기록해두는 문자열
 
+    [ContextMenu("To Json Data")]
+    public void SaveToJson()
+    {
+        string jsonData = JsonUtility.ToJson(t, true);
+        string path = Path.Combine(Application.dataPath + "/Resources/Json/KiwiStats.json");
+        File.WriteAllText(path, jsonData);
+    }
+    [ContextMenu("From Json Data")]
+    public void LoadFromJson()
+    {
+        string path = Path.Combine(Application.dataPath + "/Resources/Json/KiwiStats.json");
+        string jsonData = File.ReadAllText(path);
+        kiwiData = JsonUtility.FromJson<KiwiData>(jsonData);
+    }
+
 }
