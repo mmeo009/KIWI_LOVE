@@ -301,14 +301,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 696958086}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6b6b85fd85b124a4facb04b2b10c82ca, type: 3}
+  m_Script: {fileID: 11500000, guid: 52760ad1721732a4696e62b3e0792ea4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  kiwiStats:
-    hp: 0
-    health: 0
-    clean: 0
-    mental: 0
-    generation: 0
-    coin: 0
-    recentKiwi: 

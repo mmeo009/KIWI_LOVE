@@ -14,32 +14,15 @@ public class KiwiState : MonoBehaviour
         Die,
         Cute
     }
-    public class GeneralAnimation : JsonManager
-    {
         public Animator anim;
 
         private readonly int hashRun = Animator.StringToHash("IsRun");
         private readonly int hashJump = Animator.StringToHash("IsJump");
         public void Start()
         {
-            LoadFromJson();
             anim = GetComponent<Animator>();
         }
-        public void Update()
-        {
-            if (Input.GetKeyDown(KeyCode.S))
-            {
-                KiwiStats kiwistats = new KiwiStats();
-                kiwistats.health = Random.Range(3, 9);
-                kiwistats.generation++;
-                kiwistats.mental = Random.Range(1, 19);
-                kiwistats.clean = Random.Range(3, 39);
-                string data = JsonUtility.ToJson(kiwiStats);
-                Debug.Log(data);
-                SaveToJson(kiwistats);
-                LoadFromJson();
-            }
-        }
+      
 
         protected CharacterStates nowState;
         protected virtual void StateUpdate(CharacterStates newState)
@@ -101,4 +84,4 @@ public class KiwiState : MonoBehaviour
         }
 
     }
-}
+

@@ -1,9 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.IO;
 
-[CreateAssetMenu(fileName = "Kiwi Data", menuName = "Scriptable Object/Kiwi Data", order = 1)]
-public class KiwiStats : ScriptableObject
+
+[System.Serializable]
+[CreateAssetMenu(fileName = "KiwiData", menuName = "Scriptable Object/Kiwi Data", order = 1)]
+public class KiwiData : ScriptableObject
 {
     [SerializeField]
     private float healthPoint;
@@ -30,19 +33,16 @@ public class KiwiStats : ScriptableObject
     public int LastKiwi { get { return generation; } }
     //키위의 전 세대의 스텟을 기록해두는 문자열
 
-    [ContextMenu("To Json Data")]
     public void SaveToJson()
     {
-        string jsonData = JsonUtility.ToJson(t, true);
-        string path = Path.Combine(Application.dataPath + "/Resources/Json/KiwiStats.json");
+        string jsonData = JsonUtility.ToJson(this, true);
+        string path = Path.Combine(Application.dataPath + "/Resources/Json/data.json");
         File.WriteAllText(path, jsonData);
     }
-    [ContextMenu("From Json Data")]
     public void LoadFromJson()
     {
-        string path = Path.Combine(Application.dataPath + "/Resources/Json/KiwiStats.json");
+        string path = Path.Combine(Application.dataPath + "/Resources/Json/data.json");
         string jsonData = File.ReadAllText(path);
-        kiwiData = JsonUtility.FromJson<KiwiData>(jsonData);
+        JsonUtility.FromJsonOverwrite(jsonData, this);
     }
-
 }
