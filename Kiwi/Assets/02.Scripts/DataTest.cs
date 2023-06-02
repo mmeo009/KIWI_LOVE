@@ -10,7 +10,7 @@ public class DataTest : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Debug.Log(GameManager.MaxCute);
+        Debug.Log(GameManager.MaxFull);
     }
 
     // Update is called once per frame

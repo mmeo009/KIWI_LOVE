@@ -11,7 +11,8 @@ public class GameManager : MonoBehaviour
     {
         Start,
         Playing,
-        GameOver
+        KiwiDie,
+        Battle
     }
 
     public event Action<GameState> OnGameStateChanged;
@@ -23,10 +24,14 @@ public class GameManager : MonoBehaviour
     //
     //=================================================================
 
-    public int MaxCute;
-    public int MaxPlay;
-    public int MaxHungry;
-    public int Sleep;
+    public int Coin;
+    public float MaxFull, MinLevelFull, FullChange;
+    public float MaxPlay, MinLevelPlay, PlayChange;
+    public float MaxClean, MinLevelClean, CleanChange;
+    public bool isFull, isPlay, isClean;
+    public int KwiwLevel;
+    public float KiwiExp;
+    public int generation;
 
     public GameState CurrentState
     {
@@ -41,14 +46,15 @@ public class GameManager : MonoBehaviour
     public void StartGame()
     {   //게임 시작 로직을 여기에 작성
         CurrentState = GameState.Playing;
+
     }
 
-    public void GameOver()
-    {   //게임 오버 로직을 여기에 작성
-        CurrentState = GameState.GameOver;
+    public void KiwiDie()
+    {   //키위 죽었을때 로직을 여기에 작성
+        CurrentState = GameState.KiwiDie;
+        generation += 1;
         
     }
-
     public GameManager() { }
     public static GameManager Instance { get; private set; }    //싱글톤화
    
@@ -73,13 +79,18 @@ public class GameManager : MonoBehaviour
     {
         SceneManager.sceneLoaded -= OnSceneLoaded;  //이벤트를 삭제한다. 
     }
-
+    public void MoveGaneScene()
+    {
+        SceneManager.LoadScene("02. Gameplay S");
+    }
     public void MoveTreeScene()
     {
-
-        SceneManager.LoadScene("Tree S");
+        SceneManager.LoadScene("03. Tree S");
     }
-
+    public void MoveBattleScene()
+    {
+        SceneManager.LoadScene("04. Battle S");
+    }
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
        
