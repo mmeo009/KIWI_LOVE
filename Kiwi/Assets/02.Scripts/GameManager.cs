@@ -7,23 +7,8 @@ using UnityEngine.SceneManagement;                  //유니티 Scene 이동을 위해서
 
 public class GameManager : MonoBehaviour
 {  
-    public enum GameState           //게임 상태값 설정
-    {
-        Start,
-        Playing,
-        KiwiDie,
-        Battle
-    }
 
-    public event Action<GameState> OnGameStateChanged;
 
-    public GameState currentState = GameState.Start;
-
-    //=================================================================
-    // 변수 선언 
-    //=================================================================
-
-    public int Coin;
     public class Kiwi
     {
         public double MaxFull, MinLevelFull, FullChange = 5;
@@ -33,7 +18,7 @@ public class GameManager : MonoBehaviour
         public int KwiwLevel;
         public int generation;
         public float KiwiExp;
-        public double PastMaxF, PastMaxP, PastMaxC;
+        public static double PastMaxF, PastMaxP, PastMaxC;
 
         //Full=============================================================
 
@@ -136,12 +121,18 @@ public class GameManager : MonoBehaviour
                 this.MaxFull = 10;
                 this.MaxPlay = 10;
                 this.MaxClean = 10;
+                this.FullChange = 5;
+                this.PlayChange = 5;
+                this.CleanChange = 5;
             }
             else
             {
                 this.MaxFull = 10 + Math.Round(PastMaxF / 2);
                 this.MaxPlay = 10 + Math.Round(PastMaxP / 2);
                 this.MaxClean = 10 + Math.Round(PastMaxC / 2);
+                this.FullChange = Math.Round(MaxFull / 2);
+                this.PlayChange = Math.Round(MaxPlay / 2);
+                this.CleanChange = Math.Round(MaxClean / 2);
             }
             this.KiwiExp = 0;
             this.generation++;
@@ -154,7 +145,23 @@ public class GameManager : MonoBehaviour
             PastMaxP = this.MaxPlay;
         }
     }
+    public enum GameState           //게임 상태값 설정
+    {
+        Start,
+        Playing,
+        Battle
+    }
 
+    public event Action<GameState> OnGameStateChanged;
+
+    public GameState currentState = GameState.Start;
+
+    //=================================================================
+    // 변수 선언 
+    //=================================================================
+
+    public Kiwi kiwi = new Kiwi();
+    public int Coin;
     public GameState CurrentState
     {
         get { return currentState; }
@@ -165,14 +172,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void StartGame()
-    {   //게임 시작 로직을 여기에 작성
-        CurrentState = GameState.Playing;
-        Kiwi kiwi = new Kiwi();
-        kiwi.NewKiwi();
-        Debug.Log(kiwi.generation);
-        
-    }
+
     public GameManager() { }
     public static GameManager Instance { get; private set; }    //싱글톤화
    
@@ -191,6 +191,17 @@ public class GameManager : MonoBehaviour
         }
         SceneManager.sceneLoaded += OnSceneLoaded;
     
+    }
+    public void Start()
+    {   //게임 시작 로직을 여기에 작성
+        CurrentState = GameState.Playing;
+
+        kiwi.NewKiwi();
+        Debug.Log(kiwi.MaxFull);
+        kiwi.KiwiDie();
+        kiwi.NewKiwi();
+        Debug.Log(kiwi.FullChange);
+
     }
 
     private void OnDestroy()    //이 오브젝트가 파괴될 경우
