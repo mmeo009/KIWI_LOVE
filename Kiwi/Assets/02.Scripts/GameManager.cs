@@ -14,6 +14,7 @@ public class GameManager : MonoBehaviour
         public double MaxFull, MinLevelFull, FullChange = 5;
         public double MaxPlay, MinLevelPlay, PlayChange = 5;
         public double MaxClean, MinLevelClean, CleanChange = 5;
+        public float KiwiHP;
         public bool isFull, isPlay, isClean;
         public int KwiwLevel;
         public int generation;
@@ -24,18 +25,22 @@ public class GameManager : MonoBehaviour
 
         public void GetFull(float amount)
         {
-            this.FullChange += amount;            
+            this.FullChange += amount;
+            if (this.FullChange > this.MaxFull)
+            {
+                this.FullChange = this.MaxFull;
+            }
         }
         public void TakeFull(float amount)
         {
             this.FullChange -= amount;
+            if(this.FullChange < 0)
+            {
+                FullChange = 0;
+            }    
         }
         public void FullChack()
         {
-            if(this.MaxFull <= this.FullChange)
-            {
-                this.FullChange = this.MaxFull;
-            }
             if (this.FullChange >= this.MinLevelFull)
             {
                 this.isFull = true;
@@ -51,17 +56,21 @@ public class GameManager : MonoBehaviour
         public void GetPlay(float amount)
         {
             this.PlayChange += amount;
+            if (this.PlayChange > this.MaxPlay)
+            {
+                this.PlayChange = this.MaxPlay;
+            }
         }
         public void TakePlay(float amount)
         {
             this.PlayChange -= amount;
+            if(this.PlayChange < 0)
+            {
+                PlayChange = 0;
+            }
         }
         public void PlayChack()
         {
-            if (this.MaxPlay <= this.PlayChange)
-            {
-                this.PlayChange = this.MaxPlay;
-            }
             if (this.PlayChange >= this.MinLevelPlay)
             {
                 this.isPlay = true;
@@ -77,17 +86,21 @@ public class GameManager : MonoBehaviour
         public void GetClean(float amount)
         {
             this.CleanChange += amount;
+            if (this.CleanChange > this.MaxClean)
+            {
+                this.CleanChange = this.MaxClean;
+            }
         }
         public void TakeClean(float amount)
         {
             this.CleanChange -= amount;
+            if (this.CleanChange < 0)
+            {
+                CleanChange = 0;
+            }
         }
         public void CleanChack()
         {
-            if (this.MaxClean <= this.CleanChange)
-            {
-                this.CleanChange = this.MaxClean;
-            }
             if (this.CleanChange >= this.MinLevelClean)
             {
                 this.isClean = true;
@@ -95,6 +108,24 @@ public class GameManager : MonoBehaviour
             else
             {
                 this.isClean = false;
+            }
+        }
+        //HP===============================================================
+
+        public void GetHP(float amount)
+        {
+            this.KiwiHP += amount;
+            if(this.KiwiHP > 30)
+            {
+                this.KiwiHP = 30;
+            }
+        }
+        public void TakeHP(float amount)
+        {
+            this.KiwiHP -= amount;
+            if (this.KiwiHP < 0)
+            {
+                this.KiwiHP = 0;
             }
         }
 
@@ -160,6 +191,7 @@ public class GameManager : MonoBehaviour
     // 변수 선언 
     //=================================================================
 
+    
     public Kiwi kiwi = new Kiwi();
     public int Coin;
     public GameState CurrentState
@@ -194,13 +226,6 @@ public class GameManager : MonoBehaviour
     }
     public void Start()
     {   //게임 시작 로직을 여기에 작성
-        CurrentState = GameState.Playing;
-
-        kiwi.NewKiwi();
-        Debug.Log(kiwi.MaxFull);
-        kiwi.KiwiDie();
-        kiwi.NewKiwi();
-        Debug.Log(kiwi.FullChange);
 
     }
 
