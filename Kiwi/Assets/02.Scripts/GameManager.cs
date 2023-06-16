@@ -245,6 +245,10 @@ public class GameManager : MonoBehaviour
     {
         SceneManager.LoadScene("04. Battle S");
     }
+    public void MoveMainScene()
+    {
+        SceneManager.LoadScene("01. Main");
+    }
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
        
