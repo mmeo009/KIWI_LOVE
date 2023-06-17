@@ -20,6 +20,7 @@ public class GameManager : MonoBehaviour
         public int generation;
         public float KiwiExp;
         public static double PastMaxF, PastMaxP, PastMaxC;
+        public int count;
 
         //Full=============================================================
 
@@ -30,6 +31,7 @@ public class GameManager : MonoBehaviour
             {
                 this.FullChange = this.MaxFull;
             }
+            FullChack();
         }
         public void TakeFull(float amount)
         {
@@ -38,6 +40,8 @@ public class GameManager : MonoBehaviour
             {
                 FullChange = 0;
             }
+            FullChack();
+            ZeroCount();
         }
         public void FullChack()
         {
@@ -60,6 +64,7 @@ public class GameManager : MonoBehaviour
             {
                 this.PlayChange = this.MaxPlay;
             }
+            PlayChack();
         }
         public void TakePlay(float amount)
         {
@@ -68,6 +73,8 @@ public class GameManager : MonoBehaviour
             {
                 PlayChange = 0;
             }
+            PlayChack();
+            ZeroCount();
         }
         public void PlayChack()
         {
@@ -90,6 +97,7 @@ public class GameManager : MonoBehaviour
             {
                 this.CleanChange = this.MaxClean;
             }
+            CleanChack();
         }
         public void TakeClean(float amount)
         {
@@ -98,6 +106,8 @@ public class GameManager : MonoBehaviour
             {
                 CleanChange = 0;
             }
+            CleanChack();
+            ZeroCount();
         }
         public void CleanChack()
         {
@@ -125,7 +135,7 @@ public class GameManager : MonoBehaviour
             this.KiwiHP -= amount;
             if (this.KiwiHP < 0)
             {
-                this.KiwiHP = 0;
+                KiwiDie();
             }
         }
 
@@ -143,6 +153,26 @@ public class GameManager : MonoBehaviour
             this.MaxFull += 10;
             this.MaxPlay += 10;
             this.KiwiExp = 0;
+        }
+        public void ZeroCount()
+        {
+            if (this.PlayChange == 0 && this.FullChange == 0 && this.CleanChange == 0)
+            {
+                this.count = 3;
+            }
+            else if ((this.CleanChange == 0 && this.FullChange == 0) || (this.PlayChange == 0 && this.CleanChange == 0) || (this.FullChange == 0 && this.PlayChange == 0))
+            {
+                this.count = 2;
+            }
+            else if (this.PlayChange == 0 || this.FullChange == 0 || this.CleanChange == 0)
+            {
+                this.count = 1;
+            }
+            else
+            {
+                this.count = 0;
+            }
+
         }
 
         public void NewKiwi()
@@ -165,15 +195,18 @@ public class GameManager : MonoBehaviour
                 this.PlayChange = Math.Round(MaxPlay / 2);
                 this.CleanChange = Math.Round(MaxClean / 2);
             }
+            this.KiwiHP = 30;
             this.KiwiExp = 0;
             this.generation++;
             MinLevel();
+            ZeroCount();
         }
         public void KiwiDie()
         {
             PastMaxC = this.MaxClean;
             PastMaxF = this.MaxFull;
             PastMaxP = this.MaxPlay;
+            NewKiwi(); // 테스트용 나중에 삭제
         }
     }
     public enum GameState           //게임 상태값 설정
@@ -192,7 +225,7 @@ public class GameManager : MonoBehaviour
     //=================================================================
 
 
-    public Kiwi kiwi = new Kiwi();
+    public Kiwi kiwi;
     public int Coin;
     public GameState CurrentState
     {
@@ -224,7 +257,8 @@ public class GameManager : MonoBehaviour
     }
     public void Start()
     {   //게임 시작 로직을 여기에 작성
-
+        kiwi = new Kiwi();
+        kiwi.NewKiwi();
     }
 
     private void OnDestroy()    //이 오브젝트가 파괴될 경우
