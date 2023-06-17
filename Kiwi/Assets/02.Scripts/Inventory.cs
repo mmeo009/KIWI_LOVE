@@ -5,7 +5,7 @@ using UnityEngine;
 public class Inventory : MonoBehaviour
 {
 
-    public List<Item> items;
+    public List<ItemData> items;
 
     [SerializeField]
     private Transform slotParent;
@@ -35,7 +35,7 @@ public class Inventory : MonoBehaviour
         }
     }
 
-    public void AddItem(Item _item)
+    public void AddItem(ItemData _item)
     {
         if (items.Count < slots.Length)
         {

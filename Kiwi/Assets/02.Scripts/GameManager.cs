@@ -6,7 +6,7 @@ using System;                       // 추가
 using UnityEngine.SceneManagement;                  //유니티 Scene 이동을 위해서 가져옴
 
 public class GameManager : MonoBehaviour
-{  
+{
 
 
     public class Kiwi
@@ -34,10 +34,10 @@ public class GameManager : MonoBehaviour
         public void TakeFull(float amount)
         {
             this.FullChange -= amount;
-            if(this.FullChange < 0)
+            if (this.FullChange < 0)
             {
                 FullChange = 0;
-            }    
+            }
         }
         public void FullChack()
         {
@@ -64,7 +64,7 @@ public class GameManager : MonoBehaviour
         public void TakePlay(float amount)
         {
             this.PlayChange -= amount;
-            if(this.PlayChange < 0)
+            if (this.PlayChange < 0)
             {
                 PlayChange = 0;
             }
@@ -115,7 +115,7 @@ public class GameManager : MonoBehaviour
         public void GetHP(float amount)
         {
             this.KiwiHP += amount;
-            if(this.KiwiHP > 30)
+            if (this.KiwiHP > 30)
             {
                 this.KiwiHP = 30;
             }
@@ -147,7 +147,7 @@ public class GameManager : MonoBehaviour
 
         public void NewKiwi()
         {
-            if(this.generation == 0)
+            if (this.generation == 0)
             {
                 this.MaxFull = 10;
                 this.MaxPlay = 10;
@@ -191,7 +191,7 @@ public class GameManager : MonoBehaviour
     // 변수 선언 
     //=================================================================
 
-    
+
     public Kiwi kiwi = new Kiwi();
     public int Coin;
     public GameState CurrentState
@@ -203,11 +203,9 @@ public class GameManager : MonoBehaviour
             OnGameStateChanged?.Invoke(currentState);       //이벤트가 null이 아닌경우에만 이 이벤트를 호출 
         }
     }
-
-
     public GameManager() { }
     public static GameManager Instance { get; private set; }    //싱글톤화
-   
+
     private void Awake()
     {
         if (Instance)
@@ -222,7 +220,7 @@ public class GameManager : MonoBehaviour
             DontDestroyOnLoad(gameObject);
         }
         SceneManager.sceneLoaded += OnSceneLoaded;
-    
+
     }
     public void Start()
     {   //게임 시작 로직을 여기에 작성
@@ -233,25 +231,21 @@ public class GameManager : MonoBehaviour
     {
         SceneManager.sceneLoaded -= OnSceneLoaded;  //이벤트를 삭제한다. 
     }
-    public void MoveGaneScene()
-    {
-        SceneManager.LoadScene("02. Gameplay S");
-    }
-    public void MoveTreeScene()
-    {
-        SceneManager.LoadScene("03. Tree S");
-    }
-    public void MoveBattleScene()
-    {
-        SceneManager.LoadScene("04. Battle S");
-    }
-    public void MoveMainScene()
-    {
-        SceneManager.LoadScene("01. Main");
-    }
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-       
+
+    }
+    public void MoveScene(string SceneName)
+    {
+        SceneManager.LoadScene(SceneName);
     }
 
+    public void UseCoin(int amount)
+    {
+        Coin -= amount;
+    }
+    public void GetCoin(int amount)
+    {
+        Coin += amount;
+    }
 }

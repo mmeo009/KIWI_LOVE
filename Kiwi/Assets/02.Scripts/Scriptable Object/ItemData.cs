@@ -22,4 +22,12 @@ public class ItemData : ScriptableObject
     private int itemCost;
     public int ItemCost { get { return itemCost; } }
     //아이템의 가격
+    [SerializeField]
+    private Sprite itemImage;
+    public Sprite ItemImage { get { return itemImage; } }
+    //아이템의 스프라이트
+    [SerializeField]
+    private string itemName;
+    public string ItemName { get { return itemName; } }
+    //아이템의 이름
 }
