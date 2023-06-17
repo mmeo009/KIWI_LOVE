@@ -7,16 +7,16 @@ public class Slot : MonoBehaviour
 {
     [SerializeField] Image image; //이미지 컴포넌트를 담을 곳
 
-    private ItemData _item;
-    public ItemData item
+    private Item item;
+    public Item Item
     {
-        get { return _item; }  // item정보를 넘길때 사용
+        get { return item; }  // item정보를 넘길때 사용
         set
         {
-            _item = value;
-            if (_item != null)
+            item = value;
+            if (item != null)
             {
-                image.sprite = item. ItemImage;
+                image.sprite = item.itemImage;
                 image.color = new Color(1, 1, 1, 1);
             }
             else

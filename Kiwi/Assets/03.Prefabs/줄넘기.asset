@@ -13,4 +13,6 @@ MonoBehaviour:
   m_Name: "\uC904\uB118\uAE30"
   m_EditorClassIdentifier: 
   itemName: "\uC904\uB118\uAE30"
-  itemImage: {fileID: 21300000, guid: 01756dbf8e2282b4f9ad1bb38fc432ff, type: 3}
+  itemImage: {fileID: 21300000, guid: 8fcf2dc09c7d1f946a91993d000fc6bf, type: 3}
+  itemType: 2
+  itemCost: 20

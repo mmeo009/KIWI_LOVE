@@ -13,4 +13,6 @@ MonoBehaviour:
   m_Name: stew
   m_EditorClassIdentifier: 
   itemName: stew
-  itemImage: {fileID: 21300000, guid: f3d0b658f9ed5b440a9a321456a99c8b, type: 3}
+  itemImage: {fileID: 21300000, guid: e4c18656b5e528047960124a669e562a, type: 3}
+  itemType: 0
+  itemCost: 20
