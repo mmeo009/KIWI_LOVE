@@ -15,10 +15,10 @@ public class GameManager : MonoBehaviour
         public double MaxPlay, MinLevelPlay, PlayChange = 5;
         public double MaxClean, MinLevelClean, CleanChange = 5;
         public float KiwiHP;
-        public bool isFull, isPlay, isClean;
+        public bool isFull, isPlay, isClean , canIGrow;
         public int KwiwLevel;
         public int generation;
-        public float KiwiExp;
+        public float KiwiExp, maxExp;
         public static double PastMaxF, PastMaxP, PastMaxC;
         public int count;
 
@@ -147,12 +147,33 @@ public class GameManager : MonoBehaviour
             this.MinLevelPlay = Math.Round(this.MaxPlay / 100 * 70);
             this.MinLevelFull = Math.Round(this.MaxPlay / 100 * 70);
         }
-        public void LevelUp() //레벨업 조건
+        public void LevelUpChack()
+        {
+            if ((this.isClean == true && this.isFull == true) || (this.isFull == true && this.isPlay == true) || (this.isPlay == true && this.isClean == true)|| (this.isClean == true && this.isFull == true && this.isPlay == true))
+            {
+                this.canIGrow = true;
+            }
+            else
+            {
+                this.canIGrow = false;
+            }
+        }
+        public void GetExp(float amount)
+        {
+            this.KiwiExp += amount;
+            if(KiwiExp >= maxExp)
+            {
+                LevelUp();
+            }
+        }
+        public void LevelUp() //레벨업
         {
             this.MaxClean += 10;
             this.MaxFull += 10;
             this.MaxPlay += 10;
-            this.KiwiExp = 0;
+            this.KiwiExp = 0; //경험치 초기화
+            this.KwiwLevel++;
+            this.maxExp = this.KwiwLevel * 3 + 10; //지금 레벨 x 3 + 10(초기값) 
         }
         public void ZeroCount() //수치가 0인것이 몇개인지 확인
         {
@@ -185,6 +206,7 @@ public class GameManager : MonoBehaviour
                 this.FullChange = 5;
                 this.PlayChange = 5;
                 this.CleanChange = 5;
+                this.maxExp = 10.0f;
             }
             else //이전세대가 존재할때
             {
@@ -257,8 +279,7 @@ public class GameManager : MonoBehaviour
     }
     public void Start()
     {   //게임 시작 로직을 여기에 작성
-        kiwi = new Kiwi();
-        kiwi.NewKiwi(); //키위 생성(나중에 수정)
+        CreateKiwi();
     }
 
     private void OnDestroy()    //이 오브젝트가 파괴될 경우
@@ -281,5 +302,11 @@ public class GameManager : MonoBehaviour
     public void GetCoin(int amount) //코인감소(감소량)
     {
         Coin += amount;
+    }
+
+    public void CreateKiwi()
+    {
+        kiwi = new Kiwi();
+        kiwi.NewKiwi(); //키위 생성
     }
 }

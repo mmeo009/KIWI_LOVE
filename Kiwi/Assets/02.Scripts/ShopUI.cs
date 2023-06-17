@@ -4,20 +4,41 @@ using UnityEngine;
 
 public class ShopUI : MonoBehaviour
 {
-    public GameObject inventoryPanel;
-    bool activeInventory = false;
+    public GameObject /*inventoryPanel,*/play,eat,clean;
+/*    bool activeInventory = false;*/
+    bool playactive = false;
+    bool eatactive = false;
+    bool cleanactive = false;
 
     private void Start()
     {
-        inventoryPanel.SetActive(activeInventory);
+/*        inventoryPanel.SetActive(activeInventory);*/
+        play.SetActive(playactive);
+        eat.SetActive(eatactive);
+        clean.SetActive(cleanactive);
     }
 
-    private void Update()
+/*    private void Update()
     {
         if (Input.GetKeyDown(KeyCode.I))
         {
             activeInventory =!activeInventory;
             inventoryPanel.SetActive(!activeInventory);
         }
+    }*/
+    public void PlayShop()
+    {
+        playactive = !playactive;
+        play.SetActive(!playactive);
+    }
+    public void EatShop()
+    {
+        eatactive = !eatactive;
+        eat.SetActive(!eatactive);
+    }
+    public void CleanShop()
+    {
+        cleanactive = !cleanactive;
+        clean.SetActive(!cleanactive);
     }
 }

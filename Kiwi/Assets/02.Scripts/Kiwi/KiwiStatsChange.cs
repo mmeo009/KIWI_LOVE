@@ -39,6 +39,10 @@ public class KiwiStatsChange : MonoBehaviour
             TakeStats(0.1f * Time.deltaTime, 0.1f * Time.deltaTime, 0.1f * Time.deltaTime, 0.2f * Time.deltaTime);
         }
 
+        if(GameManager.kiwi.canIGrow == true)
+        {
+            GameManager.kiwi.GetExp(0.5f * Time.deltaTime);
+        }
         timer -= Time.deltaTime;
         if(timer <= 0)
         {
