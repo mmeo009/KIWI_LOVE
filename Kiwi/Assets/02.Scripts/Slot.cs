@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class Slot : MonoBehaviour
 {
+    
     [SerializeField] Image image; //이미지 컴포넌트를 담을 곳
 
     private Item item;

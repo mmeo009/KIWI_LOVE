@@ -13,9 +13,7 @@ public class ShopUI : MonoBehaviour
     private void Start()
     {
 /*        inventoryPanel.SetActive(activeInventory);*/
-        play.SetActive(playactive);
-        eat.SetActive(eatactive);
-        clean.SetActive(cleanactive);
+       ;
     }
 
 /*    private void Update()
@@ -40,5 +38,12 @@ public class ShopUI : MonoBehaviour
     {
         cleanactive = !cleanactive;
         clean.SetActive(!cleanactive);
+    }
+
+    public void Awake()
+    {
+        play.SetActive(playactive);
+        eat.SetActive(eatactive);
+        clean.SetActive(cleanactive);
     }
 }
