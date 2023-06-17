@@ -9,7 +9,7 @@ public class Eyes : MonoBehaviour
     public bool isClose = false;
     void Awake()
     {
-        eyes = GameObject.FindGameObjectsWithTag("Eyes");
+        eyes = GameObject.FindGameObjectsWithTag("Eyes"); //´« Å×±×°¡ ÀÖ´Â Ä£±¸µéÀ» ¸ðµÎ Ã£¾Æ ³ÖÀ½
         GameObject[] temp = eyes;
         for (int i = 0; i < eyes.Length; i++)
         {
@@ -19,7 +19,7 @@ public class Eyes : MonoBehaviour
                 eyes[i] = temp[i];
             }
         }
-        // ´«±ò ¼ø¼­ Á¤·Ä È¤½Ã ¸ô¶ó¼­
+        // ´«¾Ë ¼ø¼­ Á¤·Ä È¤½Ã ¸ô¶ó¼­
 
         for(int j = 1; j < eyes.Length; j++)
         {
@@ -29,10 +29,10 @@ public class Eyes : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        blinkTimer -= Time.fixedDeltaTime;
+        blinkTimer -= Time.fixedDeltaTime; // ´« Å¸ÀÌ¸Ó
         if(blinkTimer <= 0)
         {
-            Blink();
+            Blink(); //´« ±ôºýÀÌ ½ÇÇà
         }
     }
     void Update()
@@ -41,22 +41,22 @@ public class Eyes : MonoBehaviour
     }
     public void Blink()
     {
-        for (int j = 0; j < eyes.Length; j++)
+        for (int i = 0; i < eyes.Length; i++) 
         {
-            eyes[j].gameObject.active = false;
-        }
+            eyes[i].gameObject.active = false;
+        } //ÀÏ´Ü ´« ´Ù ²ô±â
         if (isClose == false)
         {
             eyes[1].gameObject.active = true;
             isClose = true;
             blinkTimer = 0.1f;
-        }
+        } // ¸¸¾à ´«ÀÌ ¶°ÀÖÀ¸¸é ´« °¨±â
         else
         {
             eyes[0].gameObject.active = true;
             isClose = false;
             blinkTimer = Random.Range(0.2f, 1.0f);
-        }
+        } // ¸¸¾à ´«À» °¨°í ÀÖÀ¸¸é ´« ¶ß±â
 
     }
 }

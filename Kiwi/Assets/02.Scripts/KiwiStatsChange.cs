@@ -8,7 +8,7 @@ public class KiwiStatsChange : MonoBehaviour
     public float timer = 1.0f;
     void Update()
     {
-        if(GameManager.kiwi.count == 0)
+        if(GameManager.kiwi.count == 0) // 수치 0이 0개 일경우
         {
             if(GameManager.kiwi.KiwiHP == 30.0f) // 풀피일 경우
             {
@@ -19,7 +19,7 @@ public class KiwiStatsChange : MonoBehaviour
                 TakeStats(0.2f * Time.deltaTime, 0.3f * Time.deltaTime, 0.2f * Time.deltaTime, -0.2f * Time.deltaTime);
             }
         }
-        else if (GameManager.kiwi.count == 1)
+        else if (GameManager.kiwi.count == 1) // 수치 0이 1개 일경우
         {
             if (GameManager.kiwi.KiwiHP == 30.0f) // 풀피일 경우
             {
@@ -30,11 +30,11 @@ public class KiwiStatsChange : MonoBehaviour
                 TakeStats(0.2f * Time.deltaTime, 0.3f * Time.deltaTime, 0.2f * Time.deltaTime, -0.1f * Time.deltaTime);
             }
         }
-        else if(GameManager.kiwi.count == 2)
+        else if(GameManager.kiwi.count == 2) // 수치 0이 2개 일경우
         {
             TakeStats(0.2f * Time.deltaTime, 0.2f * Time.deltaTime, 0.2f * Time.deltaTime, 0.1f * Time.deltaTime);
         }
-        else if(GameManager.kiwi.count == 3)
+        else if(GameManager.kiwi.count == 3) // 수치 0이 3개 일경우
         {
             TakeStats(0.1f * Time.deltaTime, 0.1f * Time.deltaTime, 0.1f * Time.deltaTime, 0.2f * Time.deltaTime);
         }
@@ -42,15 +42,15 @@ public class KiwiStatsChange : MonoBehaviour
         timer -= Time.deltaTime;
         if(timer <= 0)
         {
+            Debug.Log("세대 : " + GameManager.kiwi.generation);
             Debug.Log("Play : " + GameManager.kiwi.PlayChange);
             Debug.Log("Full : " + GameManager.kiwi.FullChange);
             Debug.Log("Clean : " + GameManager.kiwi.CleanChange);
             Debug.Log("HP : " + GameManager.kiwi.KiwiHP);
-            Debug.Log("세대 : " + GameManager.kiwi.generation);
             timer = 1.0f;
         }
     }
-    void TakeStats(float P, float F, float C, float H)
+    void TakeStats(float P, float F, float C, float H) // 놀이, 음식, 청결, 체력(음수일경우 체력추가)
     {
         GameManager.kiwi.TakePlay(P);
         GameManager.kiwi.TakeFull(F);

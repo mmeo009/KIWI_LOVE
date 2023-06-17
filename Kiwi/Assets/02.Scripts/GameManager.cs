@@ -24,40 +24,40 @@ public class GameManager : MonoBehaviour
 
         //Full=============================================================
 
-        public void GetFull(float amount)
+        public void GetFull(float amount) //음식수치 추가(추가량)
         {
-            this.FullChange += amount;
-            if (this.FullChange > this.MaxFull)
+            this.FullChange += amount; // 음식수지 추가
+            if (this.FullChange > this.MaxFull) // 변하는 음식수치가 최대 수치보다 클경우
             {
-                this.FullChange = this.MaxFull;
+                this.FullChange = this.MaxFull; //최대수치로 변경
             }
-            FullChack();
+            FullChack(); // 음식수치 체크
         }
-        public void TakeFull(float amount)
+        public void TakeFull(float amount) //음식수치 감수(감소량)
         {
-            this.FullChange -= amount;
-            if (this.FullChange < 0)
+            this.FullChange -= amount; // 음식수치 감소
+            if (this.FullChange < 0) // 음식수치가 0보다 작을경우
             {
-                FullChange = 0;
+                FullChange = 0; // 0으로 변경
             }
-            FullChack();
-            ZeroCount();
+            FullChack(); // 음식수치 체크
+            ZeroCount(); // 수치가 0인지 체크
         }
-        public void FullChack()
+        public void FullChack() // 음식수치 확인
         {
-            if (this.FullChange >= this.MinLevelFull)
+            if (this.FullChange >= this.MinLevelFull) //음식수치가 70%이상일 경우
             {
-                this.isFull = true;
+                this.isFull = true; //레벨업 조건 참
             }
             else
             {
-                this.isFull = false;
+                this.isFull = false; //아닐경우 거짓
             }
         }
 
         //Play=============================================================
 
-        public void GetPlay(float amount)
+        public void GetPlay(float amount) //놀이 수치 증가(증가량)
         {
             this.PlayChange += amount;
             if (this.PlayChange > this.MaxPlay)
@@ -66,7 +66,7 @@ public class GameManager : MonoBehaviour
             }
             PlayChack();
         }
-        public void TakePlay(float amount)
+        public void TakePlay(float amount) //놀이 수치 감소(감소량)
         {
             this.PlayChange -= amount;
             if (this.PlayChange < 0)
@@ -76,7 +76,7 @@ public class GameManager : MonoBehaviour
             PlayChack();
             ZeroCount();
         }
-        public void PlayChack()
+        public void PlayChack() //놀이 수치 확인
         {
             if (this.PlayChange >= this.MinLevelPlay)
             {
@@ -90,7 +90,7 @@ public class GameManager : MonoBehaviour
 
         //Clean============================================================
 
-        public void GetClean(float amount)
+        public void GetClean(float amount) //청결 수치 증가(증가량)
         {
             this.CleanChange += amount;
             if (this.CleanChange > this.MaxClean)
@@ -99,7 +99,7 @@ public class GameManager : MonoBehaviour
             }
             CleanChack();
         }
-        public void TakeClean(float amount)
+        public void TakeClean(float amount) //청결 수치 감소(감소량)
         {
             this.CleanChange -= amount;
             if (this.CleanChange < 0)
@@ -109,7 +109,7 @@ public class GameManager : MonoBehaviour
             CleanChack();
             ZeroCount();
         }
-        public void CleanChack()
+        public void CleanChack() //청결도 확인
         {
             if (this.CleanChange >= this.MinLevelClean)
             {
@@ -122,39 +122,39 @@ public class GameManager : MonoBehaviour
         }
         //HP===============================================================
 
-        public void GetHP(float amount)
+        public void GetHP(float amount) //체력추가(추가량)
         {
-            this.KiwiHP += amount;
-            if (this.KiwiHP > 30)
+            this.KiwiHP += amount; //체력추가
+            if (this.KiwiHP > 30) //30보다 클경우
             {
-                this.KiwiHP = 30;
+                this.KiwiHP = 30; //30으로 설정
             }
         }
-        public void TakeHP(float amount)
+        public void TakeHP(float amount) //체력감소(감소량)
         {
-            this.KiwiHP -= amount;
-            if (this.KiwiHP < 0)
+            this.KiwiHP -= amount; //체력감소
+            if (this.KiwiHP < 0) //체력이 0보다 적을경우
             {
-                KiwiDie();
+                KiwiDie(); //키위 사망
             }
         }
 
         //=================================================================
 
-        public void MinLevel()
+        public void MinLevel() //최소레벨업 조건 수치 설정
         {
             this.MinLevelClean = Math.Round(this.MaxClean / 100 * 70);
             this.MinLevelPlay = Math.Round(this.MaxPlay / 100 * 70);
             this.MinLevelFull = Math.Round(this.MaxPlay / 100 * 70);
         }
-        public void LevelUp()
+        public void LevelUp() //레벨업 조건
         {
             this.MaxClean += 10;
             this.MaxFull += 10;
             this.MaxPlay += 10;
             this.KiwiExp = 0;
         }
-        public void ZeroCount()
+        public void ZeroCount() //수치가 0인것이 몇개인지 확인
         {
             if (this.PlayChange == 0 && this.FullChange == 0 && this.CleanChange == 0)
             {
@@ -175,9 +175,9 @@ public class GameManager : MonoBehaviour
 
         }
 
-        public void NewKiwi()
+        public void NewKiwi() // 새로운 키위 생성
         {
-            if (this.generation == 0)
+            if (this.generation == 0) //첫번째로 생성할때
             {
                 this.MaxFull = 10;
                 this.MaxPlay = 10;
@@ -186,7 +186,7 @@ public class GameManager : MonoBehaviour
                 this.PlayChange = 5;
                 this.CleanChange = 5;
             }
-            else
+            else //이전세대가 존재할때
             {
                 this.MaxFull = 10 + Math.Round(PastMaxF / 2);
                 this.MaxPlay = 10 + Math.Round(PastMaxP / 2);
@@ -195,13 +195,13 @@ public class GameManager : MonoBehaviour
                 this.PlayChange = Math.Round(MaxPlay / 2);
                 this.CleanChange = Math.Round(MaxClean / 2);
             }
-            this.KiwiHP = 30;
-            this.KiwiExp = 0;
-            this.generation++;
-            MinLevel();
-            ZeroCount();
+            this.KiwiHP = 30; //체력은 항상 최대로
+            this.KiwiExp = 0; //경험치는 항상 0으로
+            this.generation++; //세대 추가
+            MinLevel(); //최소레벨업 수치 설정
+            ZeroCount(); // 0이 몇개인지 확인하는것 한번 
         }
-        public void KiwiDie()
+        public void KiwiDie() //키위가 죽을경우
         {
             PastMaxC = this.MaxClean;
             PastMaxF = this.MaxFull;
@@ -225,8 +225,8 @@ public class GameManager : MonoBehaviour
     //=================================================================
 
 
-    public Kiwi kiwi;
-    public int Coin;
+    public Kiwi kiwi; // 키위 인스턴스 생성
+    public int Coin; // 골드 변수 선언
     public GameState CurrentState
     {
         get { return currentState; }
@@ -258,7 +258,7 @@ public class GameManager : MonoBehaviour
     public void Start()
     {   //게임 시작 로직을 여기에 작성
         kiwi = new Kiwi();
-        kiwi.NewKiwi();
+        kiwi.NewKiwi(); //키위 생성(나중에 수정)
     }
 
     private void OnDestroy()    //이 오브젝트가 파괴될 경우
@@ -269,16 +269,16 @@ public class GameManager : MonoBehaviour
     {
 
     }
-    public void MoveScene(string SceneName)
+    public void MoveScene(string SceneName) //씬 이동(원하는 씬 이름)
     {
         SceneManager.LoadScene(SceneName);
     }
 
-    public void UseCoin(int amount)
+    public void UseCoin(int amount) //코인증가(증가량)
     {
         Coin -= amount;
     }
-    public void GetCoin(int amount)
+    public void GetCoin(int amount) //코인감소(감소량)
     {
         Coin += amount;
     }
