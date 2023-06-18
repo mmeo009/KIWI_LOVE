@@ -1892,8 +1892,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ccd0e2b6804be1439508d2a918dab63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scriptableObjectText: 1
-  scriptableObjectString: GH
+  scriptableObjectText: {fileID: 0}
 --- !u!1 &626795807
 GameObject:
   m_ObjectHideFlags: 0
@@ -5658,7 +5657,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scriptableObject: {fileID: 11400000, guid: 966ac3f0085f0774bbe418cfac114cdc, type: 2}
---- !u!114 &1812678173
+--- !u!114 &1812678178
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -5667,9 +5666,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1812678167}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 777011a6e72396c48810470ad21c5544, type: 3}
+  m_Script: {fileID: 11500000, guid: ae57467a48555fc4895e119e15aac5b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Foods: {fileID: 5281628243879781502, guid: 48bff43db528da94397091a48b5e9dc8, type: 3}
 --- !u!1 &1819367102 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1936218006535064291, guid: 87ab63b839267454ab3641a6e58015bc, type: 3}
@@ -7080,6 +7080,42 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1844174854}
     m_Modifications:
+    - target: {fileID: 7110581179588455568, guid: 87ab63b839267454ab3641a6e58015bc, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7110581179588455568, guid: 87ab63b839267454ab3641a6e58015bc, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7110581179588455568, guid: 87ab63b839267454ab3641a6e58015bc, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7110581179588455568, guid: 87ab63b839267454ab3641a6e58015bc, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7110581179588455568, guid: 87ab63b839267454ab3641a6e58015bc, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7110581179588455568, guid: 87ab63b839267454ab3641a6e58015bc, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 7110581179588455568, guid: 87ab63b839267454ab3641a6e58015bc, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7110581179588455568, guid: 87ab63b839267454ab3641a6e58015bc, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
+      value: Foods
+      objectReference: {fileID: 0}
+    - target: {fileID: 7110581179588455568, guid: 87ab63b839267454ab3641a6e58015bc, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 7110581179588455574, guid: 87ab63b839267454ab3641a6e58015bc, type: 3}
       propertyPath: m_Name
       value: Slot

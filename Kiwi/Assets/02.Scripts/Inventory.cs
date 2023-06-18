@@ -47,5 +47,12 @@ public class Inventory : MonoBehaviour
             print("슬롯이 가득 차 있습니다.");
         }
     }
+    
+   
+    
+    
 
 }
+    
+
+
