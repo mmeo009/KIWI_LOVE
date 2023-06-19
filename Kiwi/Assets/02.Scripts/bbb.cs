@@ -5,27 +5,46 @@ using UnityEngine.UI;
 
 public class bbb : MonoBehaviour
 {
+    public Item scriptableObject;
+    public GameObject GH;
+    public float timer = 3.0f;
+    public bool button = false;
 
-
-    public Item scriptableObject; // ∫“∑Øø√ ScriptableObject
-    //string Item = "GH, ∫Œ√§, æÁ∏”∏Æ,¡ˆ∑∑¿Ã±∏¿Ã, ªı√—";
-
-
-
-    private void Start()
+    private void Update()
     {
-        scriptableObject = Resources.Load<Item>("GH"); // ScriptableObject 
-        if (scriptableObject == null)
+        if(button == true)
         {
-            Debug.Log("∏ﬁ∂—±‚ ∏¿¿÷¥Ÿ");
+            timer -= Time.deltaTime;
+        }
+        if(timer <= 0)
+        {
+            ByeGH();
         }
     }
+    private void ByeGH()
+    {
+        GH.gameObject.active = false;
+        timer = 3.0f;
+        button = false;
+    }
+    public void PressButton()
+    {
+        if(button == false)
+        {
+            Debug.Log(scriptableObject.itemName);
+            if (scriptableObject.itemName == "GH")
+            {
 
-   
+                if (GH.gameObject.active == false)
+                {
+                    GH.gameObject.active = true;
+                }
 
-  
-
-
-
+                Debug.Log("∏ﬁ∂—±‚ ∏¿¿÷¥Ÿ");
+            }
+            button = true;
+        }
+        
+    }
 }
 
