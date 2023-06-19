@@ -2,8 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;               // UI 추가 
-using System;                       // 추가 
 using UnityEngine.SceneManagement;                  //유니티 Scene 이동을 위해서 가져옴
+using System;             // 추가 
+using Random = UnityEngine.Random;
 
 public class GameManager : MonoBehaviour
 {
@@ -229,6 +230,22 @@ public class GameManager : MonoBehaviour
             PastMaxF = this.MaxFull;
             PastMaxP = this.MaxPlay;
             NewKiwi(); // 테스트용 나중에 삭제
+        }
+    }
+
+    public class Leaf
+    {
+        public Vector2 position;
+        public float lX, lY;
+        public GameObject leaf;
+        public void ThisLeafPosition()
+        {
+            lX = Random.Range(0.0f, 10.0f);
+            lY = Random.Range(0.0f, 10.0f);
+        }
+        public void Spawn()
+        {
+            Quaternion toTree = Quaternion.LookRotation(new Vector3(0,0,0));
         }
     }
     public enum GameState           //게임 상태값 설정
