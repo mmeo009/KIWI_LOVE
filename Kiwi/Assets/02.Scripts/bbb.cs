@@ -6,9 +6,10 @@ using UnityEngine.UI;
 public class bbb : MonoBehaviour
 {
     public Item scriptableObject;
-    public GameObject GH;
+    public GameObject itemObject;
     public float timer = 3.0f;
     public bool button = false;
+    public GameManager gameManager;
 
     private void Update()
     {
@@ -23,7 +24,7 @@ public class bbb : MonoBehaviour
     }
     private void ByeGH()
     {
-        GH.gameObject.active = false;
+        itemObject.gameObject.active = false;
         timer = 3.0f;
         button = false;
     }
@@ -34,13 +35,12 @@ public class bbb : MonoBehaviour
             Debug.Log(scriptableObject.itemName);
             if (scriptableObject.itemName == "GH")
             {
-
-                if (GH.gameObject.active == false)
+                if (itemObject.gameObject.active == false)
                 {
-                    GH.gameObject.active = true;
+                    itemObject.gameObject.active = true;
                 }
-
                 Debug.Log("∏ﬁ∂—±‚ ∏¿¿÷¥Ÿ");
+                gameManager.UseCoin(scriptableObject.itemCost);
             }
             button = true;
         }
