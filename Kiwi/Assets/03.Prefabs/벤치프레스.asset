@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 40caa28d5ec8ca6489ba1f38b786c584, type: 3}
-  m_Name: "\uBCA4\uCE58\uD504\uB808\uADF8"
+  m_Name: "\uBCA4\uCE58\uD504\uB808\uC2A4"
   m_EditorClassIdentifier: 
   itemName: "\uB364\uBCA8"
   itemImage: {fileID: 21300000, guid: 3c87d3fae13329f459f850255d7feca9, type: 3}

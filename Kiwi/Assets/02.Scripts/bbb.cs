@@ -10,6 +10,12 @@ public class bbb : MonoBehaviour
     public float timer = 3.0f;
     public bool button = false;
     public GameManager gameManager;
+    public int itemCost;
+
+    private void Start()
+    {
+        itemCost = scriptableObject.itemCost;
+    }
 
     private void Update()
     {
@@ -30,7 +36,7 @@ public class bbb : MonoBehaviour
     }
     public void PressButton()
     {
-        if(button == false)
+        if (button == false)
         {
             Debug.Log(scriptableObject.itemName);
             if (scriptableObject.itemName == "GH")
@@ -40,11 +46,148 @@ public class bbb : MonoBehaviour
                     itemObject.gameObject.active = true;
                 }
                 Debug.Log("∏ﬁ∂—±‚ ∏¿¿÷¥Ÿ");
-                gameManager.UseCoin(scriptableObject.itemCost);
+                //gameManager.Coin -= itemCost; 
             }
             button = true;
         }
-        
+      
+
+    }
+    public void PressButton1()
+    {
+        if (button == false)
+        {
+            Debug.Log(scriptableObject.itemName);
+            if (scriptableObject.itemName == "¡ˆ∑∑¿Ã")
+            {
+                if (itemObject.gameObject.active == false)
+                {
+                    itemObject.gameObject.active = true;
+                }
+                Debug.Log("¡ˆ∑∑¿Ã ∏¿¿÷¥Ÿ");
+                //gameManager.Coin -= itemCost; 
+            }
+            button = true;
+        }
+    }
+    public void PressButton2()
+    {
+        if (button == false)
+        {
+            Debug.Log(scriptableObject.itemName);
+            if (scriptableObject.itemName == "stew")
+            {
+                if (itemObject.gameObject.active == false)
+                {
+                    itemObject.gameObject.active = true;
+                }
+                Debug.Log("Ω∫∆© ∏¿¿÷¥Ÿ");
+                //gameManager.Coin -= itemCost; 
+            }
+            button = true;
+        }
+    }
+    public void PressButton3()
+    {
+        if (button == false)
+        {
+            Debug.Log(scriptableObject.itemName);
+            if (scriptableObject.itemName == "¡ˆ∑∑¿Ã")
+            {
+                if (itemObject.gameObject.active == false)
+                {
+                    itemObject.gameObject.active = true;
+                }
+                Debug.Log("±∏¿Ã ∏¿¿÷¥Ÿ");
+                //gameManager.Coin -= itemCost; 
+            }
+            button = true;
+        }
+    }
+    public void PressClick()
+    {
+        if (button == false)
+        {
+            Debug.Log(scriptableObject.itemName);
+            if (scriptableObject.itemName == "¥˝∫ß")
+            {
+                if (itemObject.gameObject.active == false)
+                {
+                    itemObject.gameObject.active = true;
+                }
+                Debug.Log("3¥Î 500");
+                //gameManager.Coin -= itemCost; 
+            }
+            button = true;
+        }
+    }
+    public void PressClick1()
+    {
+        if (button == false)
+        {
+            Debug.Log(scriptableObject.itemName);
+            if (scriptableObject.itemName == "ªı√—")
+            {
+                if (itemObject.gameObject.active == false)
+                {
+                    itemObject.gameObject.active = true;
+                }
+                Debug.Log("ΩµΩµ");
+                //gameManager.Coin -= itemCost; 
+            }
+            button = true;
+        }
+    }
+    public void PressClick2()
+    {
+        if (button == false)
+        {
+            Debug.Log(scriptableObject.itemName);
+            if (scriptableObject.itemName == "æÁ∏”∏Æ")
+            {
+                if (itemObject.gameObject.active == false)
+                {
+                    itemObject.gameObject.active = true;
+                }
+                Debug.Log("∞®æ∆~");
+                //gameManager.Coin -= itemCost; 
+            }
+            button = true;
+        }
+    }
+    public void PressClick3()
+    {
+        if (button == false)
+        {
+            Debug.Log(scriptableObject.itemName);
+            if (scriptableObject.itemName == "fan")
+            {
+                if (itemObject.gameObject.active == false)
+                {
+                    itemObject.gameObject.active = true;
+                }
+                Debug.Log("æ∆Ω√ø¯«ÿ");
+                //gameManager.Coin -= itemCost; 
+            }
+            button = true;
+        }
+    }
+    public void PressClick4()
+    {
+        if (button == false)
+        {
+            Debug.Log(scriptableObject.itemName);
+            if (scriptableObject.itemName == "brush")
+            {
+                if (itemObject.gameObject.active == false)
+                {
+                    itemObject.gameObject.active = true;
+                }
+                Debug.Log("ΩªΩª");
+                //gameManager.Coin -= itemCost; 
+            }
+            button = true;
+        }
     }
 }
 
