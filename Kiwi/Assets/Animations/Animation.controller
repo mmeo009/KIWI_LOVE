@@ -14,34 +14,34 @@ AnimatorStateMachine:
     m_Position: {x: 540, y: 120, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 3466477969359900110}
-    m_Position: {x: 540, y: 190, z: 0}
+    m_Position: {x: 410, y: 300, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 2486282686755173165}
-    m_Position: {x: 540, y: 250, z: 0}
+    m_Position: {x: 30, y: 210, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 9214950834888678569}
-    m_Position: {x: 320, y: 250, z: 0}
+    m_Position: {x: 200, y: 360, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -5985605840617877507}
-    m_Position: {x: 100, y: 250, z: 0}
+    m_Position: {x: 30, y: 160, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -8029666392071415148}
     m_Position: {x: 300, y: 120, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -3242006110027551405}
-    m_Position: {x: 335, y: 185, z: 0}
+    m_Position: {x: 200, y: 420, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 6410910991797037179}
-    m_Position: {x: 370, y: 250, z: 0}
+    m_Position: {x: 200, y: 480, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 5348158453130661993}
-    m_Position: {x: 405, y: 315, z: 0}
+    m_Position: {x: 410, y: 480, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -5728894864076891004}
-    m_Position: {x: 440, y: 380, z: 0}
+    m_Position: {x: 410, y: 360, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -4233726059382340129}
-    m_Position: {x: 475, y: 445, z: 0}
+    m_Position: {x: 410, y: 420, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions: []
   m_EntryTransitions: []
@@ -65,6 +65,7 @@ AnimatorState:
   m_Transitions:
   - {fileID: -1900096093930759194}
   - {fileID: -7744385815567629054}
+  - {fileID: -162547539767848122}
   m_StateMachineBehaviours: []
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
@@ -260,6 +261,56 @@ AnimatorStateTransition:
   m_InterruptionSource: 0
   m_OrderedInterruption: 1
   m_CanTransitionToSelf: 1
+--- !u!1101 &-1136967950309429343
+AnimatorStateTransition:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_Conditions:
+  - m_ConditionMode: 2
+    m_ConditionEvent: Play
+    m_EventTreshold: 0
+  m_DstStateMachine: {fileID: 0}
+  m_DstState: {fileID: -8029666392071415148}
+  m_Solo: 0
+  m_Mute: 0
+  m_IsExit: 0
+  serializedVersion: 3
+  m_TransitionDuration: 0.25
+  m_TransitionOffset: 0
+  m_ExitTime: 0.73214287
+  m_HasExitTime: 1
+  m_HasFixedDuration: 1
+  m_InterruptionSource: 0
+  m_OrderedInterruption: 1
+  m_CanTransitionToSelf: 1
+--- !u!1101 &-162547539767848122
+AnimatorStateTransition:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_Conditions:
+  - m_ConditionMode: 1
+    m_ConditionEvent: Play
+    m_EventTreshold: 0
+  m_DstStateMachine: {fileID: 0}
+  m_DstState: {fileID: 2486282686755173165}
+  m_Solo: 0
+  m_Mute: 0
+  m_IsExit: 0
+  serializedVersion: 3
+  m_TransitionDuration: 0.25
+  m_TransitionOffset: 0
+  m_ExitTime: 0.7794118
+  m_HasExitTime: 1
+  m_HasFixedDuration: 1
+  m_InterruptionSource: 0
+  m_OrderedInterruption: 1
+  m_CanTransitionToSelf: 1
 --- !u!91 &9100000
 AnimatorController:
   m_ObjectHideFlags: 0
@@ -274,13 +325,19 @@ AnimatorController:
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 9100000}
+    m_Controller: {fileID: 0}
   - m_Name: Eat
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 9100000}
+    m_Controller: {fileID: 0}
+  - m_Name: Play
+    m_Type: 4
+    m_DefaultFloat: 0
+    m_DefaultInt: 0
+    m_DefaultBool: 0
+    m_Controller: {fileID: 0}
   m_AnimatorLayers:
   - serializedVersion: 5
     m_Name: Base Layer
@@ -304,7 +361,8 @@ AnimatorState:
   m_Name: kick
   m_Speed: 1
   m_CycleOffset: 0
-  m_Transitions: []
+  m_Transitions:
+  - {fileID: -1136967950309429343}
   m_StateMachineBehaviours: []
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
