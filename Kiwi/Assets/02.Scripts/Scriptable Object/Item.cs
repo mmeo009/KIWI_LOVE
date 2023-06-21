@@ -15,6 +15,8 @@ public class Item : ScriptableObject
     //0 == 음식(food), 1 == 치장용(deco/play), 2 == 청결(clean), 3 == 기타 아이템(레벨업 관련)
     public int itemCost;
     //아이템의 가격
+    public int plusAmount;
+    //추가량
 }
 
 

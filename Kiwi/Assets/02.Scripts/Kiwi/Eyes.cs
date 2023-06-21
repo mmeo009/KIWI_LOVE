@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Eyes : MonoBehaviour
 {
-    public GameManager GameManager => GameManager.Instance;
+    protected GameManager GameManager => GameManager.Instance;
     public GameObject[] eyes;
     public float blinkTimer = 0.2f;
     public int eyeType = 0;
@@ -76,10 +76,10 @@ public class Eyes : MonoBehaviour
                 case 1:
                     eyes[4].gameObject.active = true;
                     break;
-                    case 2:
+                case 2:
                     eyes[5].gameObject.active = true;
                     break;
-                    case 3:
+                case 3:
                     eyes[6].gameObject.active = true;
                     break;
             }
