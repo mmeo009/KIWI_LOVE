@@ -10,6 +10,7 @@ public class Eyes : MonoBehaviour
     public float blinkTimer = 0.2f;
     public int eyeType = 0;
     public bool isClose = false;
+    Animator anim;
     void Awake()
     {
         eyes = GameObject.FindGameObjectsWithTag("Eyes"); //눈 테그가 있는 친구들을 모두 찾아 넣음
@@ -30,29 +31,51 @@ public class Eyes : MonoBehaviour
         }
         // 눈 하나빼고 다 끄기
     }
+    private void Start()
+    {
+        anim = GameObject.FindGameObjectWithTag("Kiwi").GetComponent<Animator>();
+    }
     private void FixedUpdate()
     {
-        switch(GameManager.kiwi.count)
+        if(GameManager.kiwi.maxExp <= GameManager.kiwi.KiwiExp) // 레벨업 시
         {
-            case 0:
-                eyeType = 0; 
-                break;
-            case 1:
-                eyeType = 1; 
-                break;
-            case 2:
-                eyeType = 2;
-                break;
+            eyeType = 5;
+        }
+        else if (anim.GetBool("Play") == true) // 놀때
+        {
+            eyeType = 4;
+        }
+        else if(anim.GetBool("Eat") == true) // 먹을때
+        {
+            eyeType = 6;
+        }    
+        else if(anim.GetBool("Clean") == true) // 씻을때
+        {
+            eyeType = 7;
+        }
+        else
+        {
+            switch (GameManager.kiwi.count) // 키위의 상태에 따라
+            {
+                case 0: // 수치 3개 0일때
+                    eyeType = 0;
+                    break;
+                case 1: // 수치 1개 0일때
+                    eyeType = 1;
+                    break;
+                case 2: // 수치 2개 0일때
+                    eyeType = 2;
+                    break;
+                case 3: // 수치 3개 0일때
+                    eyeType = 3;
+                    break;
+            }
         }
         blinkTimer -= Time.fixedDeltaTime; // 눈 타이머
         if(blinkTimer <= 0)
         {
             Blink(); //눈 깜빡이 실행
         }
-    }
-    void Update()
-    {
-        
     }
     public void Blink()
     {
@@ -81,6 +104,18 @@ public class Eyes : MonoBehaviour
                     break;
                 case 3:
                     eyes[6].gameObject.active = true;
+                    break;
+                case 4:
+                    eyes[3].gameObject.active = true;
+                    break;
+                case 5:
+                    eyes[8].gameObject.active = true;
+                    break;
+                case 6:
+                    eyes[2].gameObject.active = true;
+                    break;
+                case 7:
+                    eyes[7].gameObject.active = true;
                     break;
             }
             isClose = false;

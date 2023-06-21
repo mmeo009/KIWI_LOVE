@@ -10,9 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 40caa28d5ec8ca6489ba1f38b786c584, type: 3}
-  m_Name: "\uC591\uBA38\uB9AC"
+  m_Name: Jump
   m_EditorClassIdentifier: 
-  itemName: "\uC591\uBA38\uB9AC"
-  itemImage: {fileID: 21300000, guid: 7ca9f0d12cb9e3f45b6199d7121d61ed, type: 3}
+  itemName: Jump
+  itemImage: {fileID: 21300000, guid: 8fcf2dc09c7d1f946a91993d000fc6bf, type: 3}
   itemType: 1
-  itemCost: 30
+  itemCost: 20
+  plusAmount: 9

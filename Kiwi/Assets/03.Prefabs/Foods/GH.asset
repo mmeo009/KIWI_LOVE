@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 40caa28d5ec8ca6489ba1f38b786c584, type: 3}
-  m_Name: "\uBCA4\uCE58\uD504\uB808\uC2A4"
+  m_Name: GH
   m_EditorClassIdentifier: 
-  itemName: "\uB364\uBCA8"
-  itemImage: {fileID: 21300000, guid: 3c87d3fae13329f459f850255d7feca9, type: 3}
-  itemType: 2
+  itemName: GH
+  itemImage: {fileID: 21300000, guid: b499ed554f7986946a234e6135b7c588, type: 3}
+  itemType: 0
   itemCost: 15
-  plusAmount: 0
+  plusAmount: 6

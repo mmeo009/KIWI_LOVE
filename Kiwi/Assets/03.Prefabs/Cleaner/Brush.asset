@@ -10,9 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 40caa28d5ec8ca6489ba1f38b786c584, type: 3}
-  m_Name: "\uC0C8\uCD1D"
+  m_Name: Brush
   m_EditorClassIdentifier: 
-  itemName: "\uC0C8\uCD1D"
-  itemImage: {fileID: 21300000, guid: 198de6d091a683247804fcfc1047206d, type: 3}
+  itemName: Brush
+  itemImage: {fileID: 21300000, guid: 9922faf4f7e051140bdbb0354aff4d35, type: 3}
   itemType: 2
-  itemCost: 5
+  itemCost: 21
+  plusAmount: 6

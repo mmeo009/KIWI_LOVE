@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 40caa28d5ec8ca6489ba1f38b786c584, type: 3}
-  m_Name: apple
+  m_Name: Stew
   m_EditorClassIdentifier: 
-  itemName: apple
-  itemImage: {fileID: 21300000, guid: de17e3b89d64087408ed47d461c4d701, type: 3}
+  itemName: Stew
+  itemImage: {fileID: 21300000, guid: e4c18656b5e528047960124a669e562a, type: 3}
   itemType: 0
-  itemCost: 30
-  plusAmount: 15
+  itemCost: 20
+  plusAmount: 9

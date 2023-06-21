@@ -265,7 +265,7 @@ public class GameManager : MonoBehaviour
 
 
     public Kiwi kiwi; // 키위 인스턴스 생성
-    public int Coin = 100; // 골드 변수 선언
+    public int Coin; // 골드 변수 선언
     public GameState CurrentState
     {
         get { return currentState; }
@@ -297,6 +297,7 @@ public class GameManager : MonoBehaviour
     public void Start()
     {   //게임 시작 로직을 여기에 작성
         CreateKiwi();
+        Coin = 10000;
     }
 
     private void OnDestroy()    //이 오브젝트가 파괴될 경우

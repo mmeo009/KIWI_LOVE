@@ -8,20 +8,21 @@ public class KiwiState : MonoBehaviour
     {
         Idle,
         Die,
+        Play,
         Eat
     }
     public Animator anim;
 
     private readonly int hashEat = Animator.StringToHash("Eat");
+    private readonly int hashPlay = Animator.StringToHash("Play");
     private readonly int hashFly = Animator.StringToHash("Fly");
     public void Start()
     {
         anim = GetComponent<Animator>();
     }
 
-
-    protected CharacterStates nowState;
-    protected virtual void StateUpdate(CharacterStates newState)
+    public CharacterStates nowState;
+    public virtual void StateUpdate(CharacterStates newState)
     {
         StopCoroutine(nowState.ToString());
         nowState = newState;
@@ -34,6 +35,7 @@ public class KiwiState : MonoBehaviour
         {
             anim.SetBool(hashEat, false);
             anim.SetBool(hashFly, false);
+            anim.SetBool(hashPlay, false);
             yield return null;
         }
     }
@@ -41,7 +43,15 @@ public class KiwiState : MonoBehaviour
     {
         while (true)
         {
-            anim.SetBool(hashEat, true);
+
+            yield return null;
+        }
+    }
+    IEnumerator Play()
+    {
+        while (true)
+        {
+            anim.SetBool(hashPlay, true);
             yield return null;
         }
     }
@@ -59,6 +69,5 @@ public class KiwiState : MonoBehaviour
             yield return null;
         }
     }
-
 } 
 

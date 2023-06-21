@@ -10,9 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 40caa28d5ec8ca6489ba1f38b786c584, type: 3}
-  m_Name: stew
+  m_Name: Sling
   m_EditorClassIdentifier: 
-  itemName: stew
-  itemImage: {fileID: 21300000, guid: e4c18656b5e528047960124a669e562a, type: 3}
-  itemType: 0
-  itemCost: 20
+  itemName: "\uC0C8\uCD1D"
+  itemImage: {fileID: 21300000, guid: 198de6d091a683247804fcfc1047206d, type: 3}
+  itemType: 1
+  itemCost: 5
+  plusAmount: 3
