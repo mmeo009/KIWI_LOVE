@@ -2499,7 +2499,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentState: 0
-  Coin: 0
+  Coin: 100
 --- !u!4 &596237362
 Transform:
   m_ObjectHideFlags: 0
@@ -2555,7 +2555,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 1d1771a5afd86034c8a34b551074b961, type: 2}
   - {fileID: 11400000, guid: 8f03493b21ffd224ca53a02522b6810b, type: 2}
   - {fileID: 11400000, guid: c5ce9e7d25bc7f845b3eb3a0f4cfe375, type: 2}
-  - {fileID: 11400000, guid: 411f5a4671135d74daf783006e6e78ad, type: 2}
   - {fileID: 11400000, guid: 411f5a4671135d74daf783006e6e78ad, type: 2}
   - {fileID: 11400000, guid: f06403241a4ea8944a7b4c7e10c0787e, type: 2}
   - {fileID: 11400000, guid: 69657c9306892c14d95f88149dcf8579, type: 2}
