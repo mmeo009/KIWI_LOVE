@@ -9,7 +9,7 @@ public class ItemType1 : MonoBehaviour
     float timer = 0.3f;
     void OnEnable()
     {
-        Kick();
+        Kick(Random.Range(1.0f,2.5f));
     }
     private void FixedUpdate()
     {
@@ -25,9 +25,9 @@ public class ItemType1 : MonoBehaviour
             transform.Rotate(new Vector3(0, 0, 400) * Time.deltaTime);
         }
     }
-    void Kick()
+    void Kick(float speed)
     {
-        this.transform.DOMoveX(-5, 2.0f).SetDelay(0.3f);
+        this.transform.DOMoveX(-5, speed).SetDelay(0.3f);
         kick = true;
     }
     private void OnDisable()

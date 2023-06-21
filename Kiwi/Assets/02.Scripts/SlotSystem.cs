@@ -39,6 +39,7 @@ public class SlotSystem : MonoBehaviour
         }
         KiwiAnim.SetBool("Play", false);
         KiwiAnim.SetBool("Eat", false);
+        KiwiAnim.SetBool("Clean", false);
         timer = 3.0f;
         button = false;
     }
