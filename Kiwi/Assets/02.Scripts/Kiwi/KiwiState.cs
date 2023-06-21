@@ -1,17 +1,14 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.XR;
 
 public class KiwiState : MonoBehaviour
 {
     public enum CharacterStates
     {
         Idle,
-        Dirty,
-        Boring,
-        Hungry,
-        Sleep,
         Die,
-        eat
+        Eat
     }
     public Animator anim;
 
@@ -40,33 +37,11 @@ public class KiwiState : MonoBehaviour
             yield return null;
         }
     }
-    IEnumerator eat()
+    IEnumerator Eat()
     {
         while (true)
         {
             anim.SetBool(hashEat, true);
-            yield return null;
-        }
-    }
-    IEnumerator Dirty()
-    {
-        while (true)
-        {
-            yield return null;
-        }
-    }
-    IEnumerator Boring()
-    {
-        while (true)
-        {
-            yield return null;
-        }
-    }
-    IEnumerator Hungry()
-    {
-        while (true)
-        {
-            anim.SetBool(hashFly, true);
             yield return null;
         }
     }
@@ -85,5 +60,5 @@ public class KiwiState : MonoBehaviour
         }
     }
 
-}
+} 
 
