@@ -11,7 +11,7 @@ public class Eyes : MonoBehaviour
     public int eyeType = 0;
     public bool isClose = false;
     Animator anim;
-    void Awake()
+    /*void Awake()
     {
         eyes = GameObject.FindGameObjectsWithTag("Eyes"); //눈 테그가 있는 친구들을 모두 찾아 넣음
         GameObject[] temp = eyes;
@@ -30,7 +30,7 @@ public class Eyes : MonoBehaviour
             eyes[j].gameObject.active = false;
         }
         // 눈 하나빼고 다 끄기
-    }
+    }*/ // 빌드시 오류나서 삭제
     private void Start()
     {
         anim = GameObject.FindGameObjectWithTag("Kiwi").GetComponent<Animator>();

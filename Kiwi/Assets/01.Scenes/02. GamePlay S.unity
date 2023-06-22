@@ -4202,7 +4202,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 875271e73237c9b48bd59283eaa1a2ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  eyes: []
+  eyes:
+  - {fileID: 6750150544828309761}
+  - {fileID: 522567271107552533}
+  - {fileID: 8947735315301804986}
+  - {fileID: 8684092470222597356}
+  - {fileID: 5704872484631201576}
+  - {fileID: 2157820905303100971}
+  - {fileID: 8394340284836224743}
+  - {fileID: 6620015591275386142}
+  - {fileID: 3067568036759011692}
   blinkTimer: 0.2
   eyeType: 0
   isClose: 0

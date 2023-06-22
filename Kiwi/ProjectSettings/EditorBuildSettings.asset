@@ -14,5 +14,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/01.Scenes/03. Tree S.unity
     guid: 48ad58ec4c9d1c14fa6988b00d8251d9
+  - enabled: 1
+    path: Assets/01.Scenes/04. Battle S.unity
+    guid: 995852e13b6da7844a23ed99fdac0d20
   m_configObjects:
+    com.unity.adaptiveperformance.loader_settings: {fileID: 11400000, guid: 204d56d85bdb19a469b9f32f7cd0634f, type: 2}
     com.unity.adaptiveperformance.simulator.provider_settings: {fileID: 11400000, guid: 3dd7bc8b378466d4e9d02f5443e0daa2, type: 2}
