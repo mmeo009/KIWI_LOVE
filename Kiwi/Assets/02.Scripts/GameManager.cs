@@ -232,22 +232,27 @@ public class GameManager : MonoBehaviour
             NewKiwi(); // 테스트용 나중에 삭제
         }
     }
-
     public class Leaf
     {
-        public Vector2 position;
+        public Vector3 pos;
         public float lX, lY;
         public GameObject leaf;
-        public void ThisLeafPosition()
+        public void LeafCreate()
+        {
+            this.leaf.transform.position = pos;
+        }
+        public void LeafPosition()
         {
             lX = Random.Range(0.0f, 10.0f);
-            lY = Random.Range(0.0f, 10.0f);
+            lY = Random.Range(-2f, 4f);
+            pos = new Vector2(-0.3f, lY);
         }
-        public void Spawn()
+        public void LeafRotate()
         {
-            Quaternion toTree = Quaternion.LookRotation(new Vector3(0,0,0));
+            Quaternion toTree = Quaternion.LookRotation(new Vector3(0, 0, 0));
         }
     }
+
     public enum GameState           //게임 상태값 설정
     {
         Start,
@@ -265,6 +270,7 @@ public class GameManager : MonoBehaviour
 
 
     public Kiwi kiwi; // 키위 인스턴스 생성
+    public Leaf[] leaf; // 나뭇잎 인스턴스 생성
     public int Coin; // 골드 변수 선언
     public GameState CurrentState
     {
@@ -326,5 +332,15 @@ public class GameManager : MonoBehaviour
     {
         kiwi = new Kiwi();
         kiwi.NewKiwi(); //키위 생성
+    }
+
+    public void CreateLeaf(int amount)
+    {
+        leaf[amount] = new Leaf();
+
+        for(int i = 0; i < leaf.Length; i++)
+        {
+            leaf[i].LeafPosition();
+        }
     }
 }
