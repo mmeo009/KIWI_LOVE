@@ -53,15 +53,79 @@ public class KiwiStatsChange : MonoBehaviour
             Debug.Log("HP : " + GameManager.kiwi.KiwiHP);
             timer = 1.0f;
         }
+
+        if(Input.GetKeyDown(KeyCode.Q))
+        {
+            if(Input.GetKey(KeyCode.R))
+            {
+                TakeStats(-10,0,0,0);
+            }
+            else
+            {
+                TakeStats(10, 0, 0, 0);
+            }
+        }
+        if( Input.GetKeyDown(KeyCode.W))
+        {
+            if(Input.GetKey(KeyCode.R))
+            {
+                TakeStats(0, -10, 0, 0);
+            }
+            else
+            {
+                TakeStats(0, 10, 0, 0);
+            }
+        }
+        if(Input.GetKeyDown(KeyCode.E))
+        {
+            if(Input.GetKey(KeyCode.R)) 
+            {
+                TakeStats(0, 0, -10, 0);
+            }
+            else
+            {
+                TakeStats(0, 0, 10, 0);
+            }
+        }
+        if(Input.GetKeyDown(KeyCode.S))
+        {
+            GameManager.GetCoin(1000);
+        }
     }
     void TakeStats(float P, float F, float C, float H) // 놀이, 음식, 청결, 체력(음수일경우 체력추가)
     {
-        GameManager.kiwi.TakePlay(P);
-        GameManager.kiwi.TakeFull(F);
-        GameManager.kiwi.TakeClean(C);
+        if(P > 0)
+        {
+            GameManager.kiwi.TakePlay(P);
+        }
+        else if(P < 0)
+        {
+            GameManager.kiwi.GetPlay(-P);
+        }
+        if(F > 0)
+        {
+            GameManager.kiwi.TakeFull(F);
+        }
+        else if(F < 0)
+        {
+            GameManager.kiwi.GetFull(-F);
+        }
+        if(C > 0)
+        {
+            GameManager.kiwi.TakeClean(C);
+        }
+        else if(C < 0)
+        {
+            GameManager.kiwi.GetClean(-C);
+        }
         if (H > 0)
+        {
             GameManager.kiwi.TakeHP(H);
+        }
         else if (H < 0)
+        {
             GameManager.kiwi.GetHP(-H);
+        }
+
     }
 }
