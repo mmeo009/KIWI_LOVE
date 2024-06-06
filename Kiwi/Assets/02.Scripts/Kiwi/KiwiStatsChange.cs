@@ -46,11 +46,11 @@ public class KiwiStatsChange : MonoBehaviour
         timer -= Time.deltaTime;
         if(timer <= 0)
         {
-            Debug.Log("세대 : " + GameManager.kiwi.generation);
+/*            Debug.Log("세대 : " + GameManager.kiwi.generation);
             Debug.Log("Play : " + GameManager.kiwi.PlayChange);
             Debug.Log("Full : " + GameManager.kiwi.FullChange);
             Debug.Log("Clean : " + GameManager.kiwi.CleanChange);
-            Debug.Log("HP : " + GameManager.kiwi.KiwiHP);
+            Debug.Log("HP : " + GameManager.kiwi.KiwiHP);*/
             timer = 1.0f;
         }
 

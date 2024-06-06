@@ -2896,6 +2896,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentState: 0
+  kiwi:
+    MaxFull: 0
+    MinLevelFull: 0
+    FullChange: 5
+    MaxPlay: 0
+    MinLevelPlay: 0
+    PlayChange: 5
+    MaxClean: 0
+    MinLevelClean: 0
+    CleanChange: 5
+    KiwiHP: 0
+    isFull: 0
+    isPlay: 0
+    isClean: 0
+    canIGrow: 0
+    KwiwLevel: 0
+    generation: 0
+    KiwiExp: 0
+    maxExp: 0
+    count: 0
+  leaf: []
   Coin: 100
 --- !u!4 &596237362
 Transform:

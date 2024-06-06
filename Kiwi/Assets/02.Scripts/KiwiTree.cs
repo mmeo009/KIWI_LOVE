@@ -32,3 +32,24 @@ public class KiwiTree : MonoBehaviour
         GameManager.GetCoin(leafAmount);
     }
 }
+[System.Serializable]
+public class Leaf
+{
+    public Vector3 pos;
+    public float lX, lY;
+    public GameObject leaf;
+    public void LeafCreate()
+    {
+        this.leaf.transform.position = pos;
+    }
+    public void LeafPosition()
+    {
+        lX = Random.Range(0.0f, 10.0f);
+        lY = Random.Range(-2f, 4f);
+        pos = new Vector2(-0.3f, lY);
+    }
+    public void LeafRotate()
+    {
+        Quaternion toTree = Quaternion.LookRotation(new Vector3(0, 0, 0));
+    }
+}
